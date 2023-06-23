@@ -18,9 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Header />
-        {children}
-        <Footer/>
+        <main className={`max-w-7xl mx-auto`}>
+          <Header />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );

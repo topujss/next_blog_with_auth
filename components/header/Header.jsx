@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import Styles from './header.module.css';
 
 const linkArray = [
   {
@@ -35,15 +38,21 @@ const linkArray = [
 
 export default function Header() {
   return (
-    <nav>
-      <ul>
+    <nav className={Styles.container}>
+      <Link href={`/`} className={Styles.logo}>
+        blogger
+      </Link>
+      <ul className={Styles.links}>
         {linkArray.map((link) => {
           return (
-            <li key={link.id}>
+            <li key={link.id} className={Styles.link}>
               <Link href={link.url}>{link.title}</Link>
             </li>
           );
         })}
+        <button className={Styles.logout} onClick={() => console.log('logged out')}>
+          Logout
+        </button>
       </ul>
     </nav>
   );
