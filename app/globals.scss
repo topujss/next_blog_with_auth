@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply mx-auto px-4 flex flex-col items-center justify-center min-h-screen;
+}
+
+.light {
+  @apply bg-white;
+  color: rgb(17, 17, 17);
+}
+
+.dark {
+  background-color: #111;
+  color: #bbb;
+}
+
+// portfolio styles
+.portfolio {
+  h1 {
+    @apply text-3xl font-bold mb-8;
+  }
+  .portfolio_item {
+    .item {
+      @apply relative w-[300px] h-[400px] rounded border-4 border-solid border-gray-400;
+      &:hover .title {
+        color: #53c28b;
+      }
+      span {
+        @apply absolute bottom-2 right-2 text-white text-4xl font-bold transition duration-200;
+      }
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+  }
+}
+
+// portfolio single page styles
+.item_data:nth-child(2n + 1) {
+  flex-direction: row-reverse;
+}

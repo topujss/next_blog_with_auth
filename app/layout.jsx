@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import './globals.css';
+import './globals.scss';
 import { Poppins } from 'next/font/google';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';

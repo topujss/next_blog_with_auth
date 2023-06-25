@@ -12,16 +12,6 @@
   animation: move 3s infinite ease alternate;
 }
 
-.link {
-  padding: 20px;
-  cursor: pointer;
-  background-color: #53c28b;
-  border: none;
-  border-radius: 5px;
-  width: max-content;
-  color: white;
-}
-
 @keyframes move {
   from {
     transform: translateY(-10px);

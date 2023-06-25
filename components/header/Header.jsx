@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Styles from './header.module.css';
 
 const linkArray = [
   {
@@ -38,19 +37,22 @@ const linkArray = [
 
 export default function Header() {
   return (
-    <nav className={Styles.container}>
-      <Link href={`/`} className={Styles.logo}>
+    <nav className="h-[100px] flex justify-between items-center">
+      <Link href={`/`} className="font-semibold text-2xl">
         blogger
       </Link>
-      <ul className={Styles.links}>
+      <ul className="flex items-center gap-5">
         {linkArray.map((link) => {
           return (
-            <li key={link.id} className={Styles.link}>
+            <li key={link.id}>
               <Link href={link.url}>{link.title}</Link>
             </li>
           );
         })}
-        <button className={Styles.logout} onClick={() => console.log('logged out')}>
+        <button
+          className="bg-btn-primary hover:bg-green-700 text-white px-2 py-1 rounded border-none"
+          onClick={() => alert('logged out')}
+        >
           Logout
         </button>
       </ul>

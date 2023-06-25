@@ -1,0 +1,27 @@
+.img_tag {
+  img {
+    position: relative !important;
+    object-fit: contain;
+    animation: move 3s infinite ease alternate;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translateY(-25px);
+  }
+  to {
+    transform: translateY(0px) scale(1.04);
+  }
+}
+
+.input,
+.textArea {
+  @apply p-5 bg-transparent outline-none text-gray-500 border-2 border-solid border-green-600 text-xl font-medium;
+}
+
+.form_style {
+  a {
+    @apply max-w-max;
+  }
+}
