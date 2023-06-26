@@ -5,6 +5,18 @@
 .container {
   @apply mx-auto px-4 flex flex-col items-center justify-center min-h-screen;
 }
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #111;
+  color: #bbb;
+}
+
+// the following class is from toggle icon
+.theme {
+  transition: all 1s ease;
+}
 
 .light {
   @apply bg-white;
@@ -40,4 +52,16 @@
 // portfolio single page styles
 .item_data:nth-child(2n + 1) {
   flex-direction: row-reverse;
+}
+
+// dark mode styles
+.container_dark {
+  padding: 1px;
+  .icon {
+    font-size: 0.7rem;
+  }
+  .ball {
+    left: 2px;
+    transition: all 1s ease;
+  }
 }

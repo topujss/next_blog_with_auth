@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import DarkMode from '../darkMode/DarkMode';
 
 const linkArray = [
   {
@@ -42,6 +43,7 @@ export default function Header() {
         blogger
       </Link>
       <ul className="flex items-center gap-5">
+        <DarkMode/>
         {linkArray.map((link) => {
           return (
             <li key={link.id}>
