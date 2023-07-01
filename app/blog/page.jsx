@@ -3,19 +3,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 async function getData() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const res = await axios.get('http://localhost:3000/api/posts');
 
-  if (!res.ok) throw new Error('Failed to fetch data');
+  if (!res.data) throw new Error('Failed to fetch data');
 
-  return res.json();
+  return res.data;
 }
 
 export default async function Blog() {
   const posts = await getData();
 
+  console.log(posts);
+
   return (
     <div className={'flex items-center gap-12 mb-12'}>
-      {posts.map(({ id, title, body }) => {
+      {posts.map(({ _id, title, desc }) => {
         return (
           <Link href={`/blog/${id}/`} className={'containe'} key={id}>
             <div className={'imageContainer'}>
