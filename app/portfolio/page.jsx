@@ -27,11 +27,11 @@ export default function Portfolio() {
     <div className={'portfolio'}>
       <h1 className={'my-5'}>Choose a gallery</h1>
       <div className={'flex gap-12 portfolio_item'}>
-        {portfolioArray.map((single, i) => {
+        {portfolioArray.map(({ link, title, imgLink }, i) => {
           return (
-            <Link key={i} href={single.link} className={'item'}>
-              <Image src={single.imgLink} className={'image'} fill={true} />
-              <span className={'title'}>{single.title}</span>
+            <Link key={i} href={link} className={'item'}>
+              <Image src={imgLink} className={'image'} fill={true} alt={title} title={title} />
+              <span className={'title'}>{title}</span>
             </Link>
           );
         })}

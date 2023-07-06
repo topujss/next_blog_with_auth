@@ -2,6 +2,11 @@ import Button from '@/components/button/Button';
 import Image from 'next/image';
 import './contact.scss';
 
+export const metadata = {
+  title: 'Next blog app - contact',
+  description: 'You can contact us directly',
+};
+
 export default function Contact() {
   return (
     <div className={'container'}>

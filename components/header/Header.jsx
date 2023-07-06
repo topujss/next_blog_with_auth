@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import DarkMode from '../darkMode/DarkMode';
+import { signOut, useSession } from 'next-auth/react';
 
 const linkArray = [
   {
@@ -37,13 +38,17 @@ const linkArray = [
 ];
 
 export default function Header() {
+  const session = useSession();
+
+  console.log(session);
+
   return (
     <nav className="h-[100px] flex justify-between items-center">
       <Link href={`/`} className="font-semibold text-2xl">
         blogger
       </Link>
       <ul className="flex items-center gap-5">
-        <DarkMode/>
+        <DarkMode />
         {linkArray.map((link) => {
           return (
             <li key={link.id}>
@@ -51,12 +56,14 @@ export default function Header() {
             </li>
           );
         })}
-        <button
-          className="bg-btn-primary hover:bg-green-700 text-white px-2 py-1 rounded border-none"
-          onClick={() => alert('logged out')}
-        >
-          Logout
-        </button>
+        {session.status === 'authenticated' && (
+          <button
+            className="bg-btn-primary hover:bg-green-700 text-white px-2 py-1 rounded border-none"
+            onClick={signOut}
+          >
+            Logout
+          </button>
+        )}
       </ul>
     </nav>
   );

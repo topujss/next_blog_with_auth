@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 import { ThemeProvider } from '@/Context/ThemeContext';
+import AuthProvider from '@/components/AuthProvider/AuthProvider';
 
 const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -19,12 +20,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={poppins.className}>
         <ThemeProvider>
-
-        <main className={`max-w-7xl mx-auto`}>
-          <Header />
-          {children}
-          <Footer />
-        </main>
+          <AuthProvider>
+            <main className={`max-w-7xl mx-auto`}>
+              <Header />
+              {children}
+              <Footer />
+            </main>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
