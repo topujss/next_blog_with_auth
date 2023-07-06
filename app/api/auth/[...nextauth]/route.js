@@ -15,6 +15,7 @@ const handler = NextAuth({
       id: 'credentials',
       name: 'Credentials',
       async authorize(credentials) {
+        console.log(credentials);
         await connect();
 
         try {
@@ -44,4 +45,4 @@ const handler = NextAuth({
   },
 });
 
-export { handler as POST };
+export { handler as POST, handler as GET};

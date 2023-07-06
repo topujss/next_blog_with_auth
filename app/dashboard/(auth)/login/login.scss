@@ -1,0 +1,13 @@
+.login_style {
+  form {
+    @apply flex flex-col items-center justify-center;
+    input {
+      @apply text-green-500 w-full p-4 border-2 border-solid border-gray-300 rounded outline-none text-xl;
+    }
+    button {
+      @apply w-full p-5 border-none font-bold rounded cursor-pointer mt-5;
+      background: #53c28b;
+      color: #eee;
+    }
+  }
+}
