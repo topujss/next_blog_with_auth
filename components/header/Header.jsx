@@ -39,9 +39,7 @@ const linkArray = [
 
 export default function Header() {
   const session = useSession();
-
-  console.log(session);
-
+  
   return (
     <nav className="h-[100px] flex justify-between items-center">
       <Link href={`/`} className="font-semibold text-2xl">

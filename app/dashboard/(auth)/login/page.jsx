@@ -1,6 +1,7 @@
 'use client';
 import './login.scss';
 import { signIn, useSession } from 'next-auth/react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
@@ -26,13 +27,19 @@ export default function Login() {
   return (
     <>
       <div className="login_style w-[350px] mx-auto">
-        <form onSubmit={handleSubmit} className={'gap-5 '}>
+        <h1 className="text-center my-3">
+          New User?{' '}
+          <Link href={`/dashboard/register`} className="font-bold text-green-600">
+            Register
+          </Link>{' '}
+        </h1>
+        <form onSubmit={handleSubmit} className={''}>
           <input type="email" placeholder="Email" className={'input'} />
-          <input type="password" placeholder="Password" className={'input'} />
-          <button className={'button'}>Login</button>
+          <input type="password" placeholder="Password" className={'mt-5'} />
+          <button className={'my-4'}>Login</button>
         </form>
         <button
-          className="mt-4 ml-[20%] text-center text-green-600 text-xl font-semibold"
+          className="ml-[20%] text-center text-green-600 text-xl font-semibold"
           onClick={() => signIn('google')}
         >
           login with google

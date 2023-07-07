@@ -40,6 +40,7 @@ export default function Register() {
     <div className={'flex flex-col gap-5 items-center justify-center register_style'}>
       <h1 className={'title'}>Create an Account</h1>
       <h2 className={'subtitle'}>Please sign up to see the dashboard.</h2>
+
       <form onSubmit={handleSubmit} className={'gap-5 w-[300px]'}>
         <input type="text" placeholder="Username" name="name" onChange={handleChange} className={'input'} />
         <input type="email" placeholder="Email" name="email" onChange={handleChange} className={'input'} />
@@ -53,6 +54,12 @@ export default function Register() {
         <button className={'button'}>Register</button>
         {error && <h5>Something went wrong!</h5>}
       </form>
+      <h2 className={'subtitle'}>
+        Already have an account?{' '}
+        <Link href="/dashboard/login" className="font-bold text-green-600">
+          Login
+        </Link>
+      </h2>
       <span className={'or'}>- OR -</span>
       <Link className={'link'} href="/dashboard/login">
         Login with an existing account
