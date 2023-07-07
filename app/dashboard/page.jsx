@@ -11,19 +11,9 @@ export default function Dashboard() {
   const session = useSession();
   const router = useRouter();
 
-  const fetcher = (...args) => {
-    fetch(...args).then((res) => {
-      res.json();
-    });
-  };
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  const { data, mutate, error, isLoading } = useSWR(
-    `http://localhost:3000/api/posts?username=${session?.data?.user.name}`,
-    fetcher
-  );
-
-  console.log(session.data);
-  console.log(data);
+  const { data, mutate, error, isLoading } = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher);
 
   if (session.status === 'loading') {
     return <p>Loading...</p>;
@@ -75,7 +65,7 @@ export default function Dashboard() {
               return (
                 <div className="post_parent flex items-center justify-between" key={post._id}>
                   <div className="imgContainer relative h-[100px] w-[200px]">
-                    <Image className="object-cover" src={post.img} width={`200px`} height={`100px`} alt="" />
+                    <Image className="object-cover" src={post.img} width="200" height="100" alt="" />
                   </div>
                   <h2 className="post_title">{post.title}</h2>
                   <span className="cursor-pointer text-red-500 text-bold" onClick={() => handleDelete(post._id)}>
