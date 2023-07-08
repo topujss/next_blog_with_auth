@@ -36,13 +36,22 @@ export default function Register() {
     }
   };
 
+  const userName = /^[a-zA-Z0-9_-]{3,16}$/;
+
   return (
     <div className={'flex flex-col gap-5 items-center justify-center register_style'}>
       <h1 className={'title'}>Create an Account</h1>
       <h2 className={'subtitle'}>Please sign up to see the dashboard.</h2>
 
       <form onSubmit={handleSubmit} className={'gap-5 w-[300px]'}>
-        <input type="text" placeholder="Username" name="name" onChange={handleChange} className={'input'} />
+        <input
+          type="text"
+          placeholder="Username"
+          name="name"
+          onChange={handleChange}
+          className={'input'}
+          accept={userName}
+        />
         <input type="email" placeholder="Email" name="email" onChange={handleChange} className={'input'} />
         <input
           type="password"

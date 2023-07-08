@@ -3,6 +3,8 @@ import Styles from './page.module.scss';
 import Image from 'next/image';
 import Button from '@/components/button/Button';
 
+// https://github.com/safak/nextjs-tutorial < inspired from this 
+
 const Hero = `https://raw.githubusercontent.com/safak/nextjs-tutorial/main/public/hero.png`;
 
 export default function Home() {

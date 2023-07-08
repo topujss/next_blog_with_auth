@@ -11,7 +11,13 @@ export default function Dashboard() {
   const session = useSession();
   const router = useRouter();
 
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  console.log(session);
+
+  const fetcher = (...args) => {
+    fetch(...args).then((res) => {
+      res.json();
+    });
+  };
 
   const { data, mutate, error, isLoading } = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher);
 
@@ -26,8 +32,6 @@ export default function Dashboard() {
     const desc = e.target[1].value;
     const img = e.target[2].value;
     const content = e.target[3].value;
-
-    console.log(title);
 
     try {
       await axios.post('http://localhost:3000/api/posts', {
@@ -58,10 +62,9 @@ export default function Dashboard() {
       <section className="flex gap-24">
         <div className="posts">
           {isLoading ? (
-            <p>Loading...</p>
+            <p className="text-center text-2xl text-emerald-500">Loading...</p>
           ) : (
             data?.map((post) => {
-              console.log(post.img);
               return (
                 <div className="post_parent flex items-center justify-between" key={post._id}>
                   <div className="imgContainer relative h-[100px] w-[200px]">
@@ -76,7 +79,7 @@ export default function Dashboard() {
             })
           )}
         </div>
-        <form action="" className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <h1 className="text-3xl font-bold">Add new post</h1>
           <input type="text" placeholder="title" className="input" />
           <input type="text" placeholder="desc" className="input" />

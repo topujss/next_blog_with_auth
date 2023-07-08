@@ -1,6 +1,16 @@
+import axios from 'axios';
+
 /**
- * get username data
+ * @param id
+ * @param mutate
+ * @function deleteSingleUser
+ * delete single user
  */
-export async function myData() {
-  const data = await axios.get(`http://localhost:3000/api/posts?username=${session?.data?.user?.name}`)
-}
+export const deleteSingleUser = async (id, mutate) => {
+  try {
+    await axios.delete(`http://localhost:3000/api/posts/${id}`);
+    mutate
+  } catch (error) {
+    console.log(error);
+  }
+};
