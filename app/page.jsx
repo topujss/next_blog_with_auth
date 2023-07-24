@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Styles from './page.module.scss';
 import Image from 'next/image';
 import Button from '@/components/button/Button';

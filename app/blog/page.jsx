@@ -15,7 +15,7 @@ export default async function Blog() {
       ) : (
         posts.map(({ _id, title, desc, img }, index) => {
           return (
-            <Link href={`/blog/${_id}`} className={'flex items-center gap-12 mb-12'}>
+            <Link href={`/blog/${_id}`} key={index} className={'flex items-center gap-12 mb-12'}>
               <div className={'relative'}>
                 <Image src={img} alt="" width={400} height={250} className={'object-cover rounded'} />
                 <span className={`absolute top-0 left-0 bg-slate-600 px-2 py-1`}>{index + 1}</span>

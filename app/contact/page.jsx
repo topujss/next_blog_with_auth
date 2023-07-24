@@ -10,7 +10,7 @@ export const metadata = {
 export default function Contact() {
   return (
     <div className={'container'}>
-      <h1 className={'text-6xl mb-24 text-center text-green-500 font-semibold'}>Let's Keep in Touch</h1>
+      <h1 className={'text-6xl mb-24 text-center text-green-500 font-semibold'}>Let&apos;s Keep in Touch</h1>
       <div className={'flex items-center gap-24 '}>
         <div className={'img_tag flex-one h-[600px] relative'}>
           <Image
